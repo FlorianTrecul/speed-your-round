@@ -24,6 +24,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.ui.theme.WeTradeTheme
+import com.example.androiddevchallenge.ui.views.WelcomeScreen
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,9 +40,7 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun WeTradeHome() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
-    }
+    WelcomeScreen()
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
