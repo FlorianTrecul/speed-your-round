@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.views.HomeScreen
 import com.example.androiddevchallenge.ui.views.LoginScreen
 import com.example.androiddevchallenge.ui.views.WelcomeScreen
 
@@ -15,8 +16,11 @@ fun AppNavigator() {
         composable("weTradeHome") {
             WelcomeScreen(navController)
         }
-        composable("loginScreen") {
-            LoginScreen()
+        composable("login") {
+            LoginScreen(navController)
+        }
+        composable("home") {
+            HomeScreen()
         }
     }
 }

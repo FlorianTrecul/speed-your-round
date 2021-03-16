@@ -25,16 +25,18 @@ import androidx.compose.runtime.Composable
 fun darkTheme() = darkColors(
     primary = yellow,
     onPrimary = gray900,
+    secondary = gray900,
     background = gray900,
     surface = gray700,
     onBackground = white,
-    onSurface = white
+    onSurface = white,
 )
 
 @Composable
 fun lightTheme() = lightColors(
     primary = yellow,
     onPrimary = gray900,
+    secondary = white,
     background = purple,
     surface = white,
     onBackground = white,
