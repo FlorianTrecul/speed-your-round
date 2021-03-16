@@ -1,5 +1,6 @@
 package com.example.androiddevchallenge.ui.views
 
+import android.app.Activity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
@@ -22,9 +24,15 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.example.androiddevchallenge.R
+import com.example.androiddevchallenge.ui.components.hideSystemUi
+import com.example.androiddevchallenge.ui.components.setStatusBarTransparent
 
 @Composable
 fun LoginScreen(navController: NavController) {
+    val window = (LocalContext.current as Activity).window
+    setStatusBarTransparent(window = window)
+    hideSystemUi(window = window)
+
     var email: String by mutableStateOf("")
     var password: String by mutableStateOf("")
 
