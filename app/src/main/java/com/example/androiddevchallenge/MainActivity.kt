@@ -23,6 +23,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.androiddevchallenge.navigation.AppNavigator
 import com.example.androiddevchallenge.ui.theme.WeTradeTheme
 import com.example.androiddevchallenge.ui.views.WelcomeScreen
 
@@ -30,9 +31,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            WeTradeTheme {
-                WeTradeHome()
-            }
+            WeTradeHome()
         }
     }
 }
@@ -40,7 +39,9 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun WeTradeHome() {
-    WelcomeScreen()
+    WeTradeTheme {
+        AppNavigator()
+    }
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)

@@ -11,14 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 import com.example.androiddevchallenge.R
 
-@Preview
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             modifier = Modifier.fillMaxSize(),
@@ -35,7 +34,7 @@ fun WelcomeScreen() {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(bottom = 32.dp)
+                .padding(bottom = 32.dp, start = 16.dp, end = 16.dp)
                 .height(48.dp)
                 .align(alignment = Alignment.BottomCenter),
             horizontalArrangement = Arrangement.Center,
@@ -56,7 +55,7 @@ fun WelcomeScreen() {
                 Text(text = "GET STARTED")
             }
             OutlinedButton(
-                onClick = { /*TODO*/ },
+                onClick = { navController.navigate("loginScreen") },
                 modifier = Modifier
                     .fillMaxHeight()
                     .weight(1f)
@@ -66,7 +65,8 @@ fun WelcomeScreen() {
                     contentColor = MaterialTheme.colors.primary,
                     backgroundColor = Color.Transparent
                 ),
-                shape = RoundedCornerShape(50)
+                shape = RoundedCornerShape(50),
+                
             ) {
                 Text(text = "LOG IN")
             }
