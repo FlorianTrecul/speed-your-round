@@ -1,9 +1,7 @@
 package com.example.androiddevchallenge.ui.views
 
-import android.app.Activity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -16,32 +14,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.example.androiddevchallenge.R
-import com.example.androiddevchallenge.ui.components.hideSystemUi
-import com.example.androiddevchallenge.ui.components.setStatusBarTransparent
+import com.example.androiddevchallenge.R.string.welcome_log_in
+import com.example.androiddevchallenge.ui.components.WeTradeButton
+import java.util.*
 
 @Composable
 fun LoginScreen(navController: NavController) {
-    val window = (LocalContext.current as Activity).window
-    setStatusBarTransparent(window = window)
-    hideSystemUi(window = window)
-
     var email: String by mutableStateOf("")
     var password: String by mutableStateOf("")
 
-    Surface(color = MaterialTheme.colors.secondary) {
+    Surface(color = MaterialTheme.colors.surface) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Box {
+            Box(contentAlignment = Alignment.Center) {
                 Image(
                     modifier = Modifier.fillMaxWidth(),
                     painter = painterResource(id = R.drawable.login_bg),
@@ -107,19 +102,13 @@ fun LoginScreen(navController: NavController) {
                     )
                 },
             )
-            Button(
+            WeTradeButton(
                 onClick = { navController.navigate("home") },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(48.dp)
-                    .padding(top = 16.dp, end = 16.dp, start = 16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = MaterialTheme.colors.primary,
-                    contentColor = MaterialTheme.colors.onPrimary
-                ),
-                shape = RoundedCornerShape(50)
+                    .padding(top = 16.dp, end = 16.dp, start = 16.dp)
             ) {
-                Text(text = "LOG IN")
+                Text(stringResource(welcome_log_in).toUpperCase(Locale.getDefault()))
             }
         }
     }

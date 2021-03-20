@@ -1,82 +1,65 @@
 package com.example.androiddevchallenge.ui.views
 
-import android.app.Activity
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
-import com.example.androiddevchallenge.R
-import com.example.androiddevchallenge.ui.components.hideSystemUi
-import com.example.androiddevchallenge.ui.components.setStatusBarTransparent
+import com.example.androiddevchallenge.R.drawable.logo
+import com.example.androiddevchallenge.R.drawable.welcome_bg
+import com.example.androiddevchallenge.R.string.*
+import com.example.androiddevchallenge.ui.components.WeTradeButton
+import java.util.*
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
-    val window = (LocalContext.current as Activity).window
-    setStatusBarTransparent(window = window)
-    hideSystemUi(window = window)
-
-    Box(modifier = Modifier.fillMaxSize()) {
-        Image(
+    Surface(color = MaterialTheme.colors.background) {
+        Box(
             modifier = Modifier.fillMaxSize(),
-            painter = painterResource(id = R.drawable.welcome_bg),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
-        Image(
-            modifier = Modifier.align(Alignment.Center),
-            painter = painterResource(id = R.drawable.logo),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(bottom = 32.dp, start = 16.dp, end = 16.dp)
-                .height(48.dp)
-                .align(alignment = Alignment.BottomCenter),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
+            contentAlignment = Alignment.Center
         ) {
-            Button(
-                onClick = { /*TODO*/ },
+            Image(
+                modifier = Modifier.fillMaxSize(),
+                painter = painterResource(id = welcome_bg),
+                contentDescription = null,
+                contentScale = ContentScale.FillBounds
+            )
+            Image(
+                painterResource(logo),
+                stringResource(app_name)
+            )
+            Row(
                 modifier = Modifier
-                    .fillMaxHeight()
-                    .weight(1f)
-                    .padding(end = 8.dp, start = 16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    backgroundColor = MaterialTheme.colors.primary,
-                    contentColor = MaterialTheme.colors.onPrimary
-                ),
-                shape = RoundedCornerShape(50)
+                    .fillMaxWidth()
+                    .padding(bottom = 32.dp, start = 16.dp, end = 16.dp)
+                    .align(alignment = Alignment.BottomCenter),
             ) {
-                Text(text = "GET STARTED")
-            }
-            OutlinedButton(
-                onClick = { navController.navigate("login") },
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .weight(1f)
-                    .padding(end = 16.dp),
-                border = BorderStroke(width = 1.dp, color = MaterialTheme.colors.primary),
-                colors = ButtonDefaults.outlinedButtonColors(
-                    contentColor = MaterialTheme.colors.primary,
-                    backgroundColor = Color.Transparent
-                ),
-                shape = RoundedCornerShape(50),
-                
-            ) {
-                Text(text = "LOG IN")
+                WeTradeButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(end = 8.dp, start = 16.dp)
+                ) {
+                    Text(stringResource(welcome_started).toUpperCase(Locale.getDefault()))
+                }
+                WeTradeButton(
+                    onClick = { navController.navigate("login") },
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(end = 16.dp),
+                    isSecondary = true
+                ) {
+                    Text(stringResource(welcome_log_in).toUpperCase(Locale.getDefault()))
+                }
             }
         }
     }
