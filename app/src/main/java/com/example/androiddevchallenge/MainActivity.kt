@@ -21,6 +21,7 @@ import android.view.View
 import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.navigation.AppNavigator
@@ -28,6 +29,7 @@ import com.example.androiddevchallenge.ui.theme.WeTradeTheme
 
 class MainActivity : AppCompatActivity() {
 
+    @ExperimentalMaterialApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-// Start building your app here!
+@ExperimentalMaterialApi
 @Composable
 fun WeTradeHome() {
     WeTradeTheme {
@@ -47,6 +49,7 @@ fun WeTradeHome() {
     }
 }
 
+@ExperimentalMaterialApi
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
@@ -55,6 +58,7 @@ fun LightPreview() {
     }
 }
 
+@ExperimentalMaterialApi
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {

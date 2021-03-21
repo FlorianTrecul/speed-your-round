@@ -12,4 +12,9 @@
     <string name="app_name">AndroidDevChallenge</string>
     <string name="welcome_started">Get started</string>
     <string name="welcome_log_in">Log in</string>
+    <string name="home_account_tab">Account</string>
+    <string name="home_watchlist_tab">Watchlist</string>
+    <string name="home_profile_tab">Profile</string>
+    <string name="home_position_bottom_sheet">Positions</string>
+    <string name="home_transact">Transact</string>
 </resources>

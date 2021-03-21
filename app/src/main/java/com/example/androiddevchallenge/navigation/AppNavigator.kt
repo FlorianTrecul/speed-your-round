@@ -1,5 +1,6 @@
 package com.example.androiddevchallenge.navigation
 
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -8,6 +9,7 @@ import com.example.androiddevchallenge.ui.views.HomeScreen
 import com.example.androiddevchallenge.ui.views.LoginScreen
 import com.example.androiddevchallenge.ui.views.WelcomeScreen
 
+@ExperimentalMaterialApi
 @Composable
 fun AppNavigator() {
     val navController = rememberNavController()
