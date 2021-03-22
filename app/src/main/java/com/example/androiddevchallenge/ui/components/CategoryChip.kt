@@ -17,11 +17,19 @@
 package com.example.androiddevchallenge.ui.components
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.Composable
@@ -55,7 +63,10 @@ fun CategoryChip(categories: List<String>) {
                     backgroundColor = Color.Transparent
                 ),
             ) {
-                Category(category = category, isIconDisplayed = index == 0)
+                Category(
+                    category = category,
+                    isIconDisplayed = index == 0
+                )
             }
         }
     }
@@ -65,14 +76,14 @@ fun CategoryChip(categories: List<String>) {
 private fun Category(category: String, isIconDisplayed: Boolean) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Text(
-            category,
+            text = category,
             style = MaterialTheme.typography.body1
         )
         if (isIconDisplayed) {
             Icon(
-                Icons.Default.ExpandMore,
-                "View more",
-                Modifier
+                imageVector = Icons.Default.ExpandMore,
+                contentDescription = "View more",
+                modifier = Modifier
                     .padding(start = 8.dp)
                     .size(16.dp)
             )

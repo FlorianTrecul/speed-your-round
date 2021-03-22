@@ -17,7 +17,12 @@
 package com.example.androiddevchallenge.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
@@ -35,7 +40,8 @@ import com.example.androiddevchallenge.ui.theme.red
 
 @Composable
 fun StockPositionsList(positions: List<StockPosition>) {
-    LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)) {
+    LazyColumn(modifier = Modifier.padding(horizontal = 16.dp)
+    ) {
         items(positions) { position ->
             Divider(modifier = Modifier.height(1.5.dp))
             StockPositionItem(position)
@@ -61,7 +67,7 @@ fun StockPositionItem(position: StockPosition) {
             )
         }
         Column(
-            Modifier
+            modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .weight(1f)
         ) {

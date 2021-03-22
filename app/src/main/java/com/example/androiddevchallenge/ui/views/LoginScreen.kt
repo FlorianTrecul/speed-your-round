@@ -17,8 +17,19 @@
 package com.example.androiddevchallenge.ui.views
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.Surface
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Password
@@ -38,9 +49,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
 import com.example.androiddevchallenge.R
-import com.example.androiddevchallenge.R.string.welcome_log_in
 import com.example.androiddevchallenge.ui.components.WeTradeButton
-import java.util.*
+import java.util.Locale
 
 @Composable
 fun LoginScreen(navController: NavController) {
@@ -85,7 +95,7 @@ fun LoginScreen(navController: NavController) {
                     .height(56.dp),
                 leadingIcon = {
                     Icon(
-                        Icons.Filled.Email,
+                        imageVector = Icons.Filled.Email,
                         contentDescription = "Email Icon",
                         modifier = Modifier
                             .height(24.dp)
@@ -110,7 +120,7 @@ fun LoginScreen(navController: NavController) {
                 visualTransformation = PasswordVisualTransformation(),
                 leadingIcon = {
                     Icon(
-                        Icons.Filled.Password,
+                        imageVector = Icons.Filled.Password,
                         contentDescription = "Password Icon",
                         modifier = Modifier
                             .height(24.dp)
@@ -124,7 +134,9 @@ fun LoginScreen(navController: NavController) {
                     .fillMaxWidth()
                     .padding(top = 16.dp, end = 16.dp, start = 16.dp)
             ) {
-                Text(stringResource(welcome_log_in).toUpperCase(Locale.getDefault()))
+                Text(
+                    text = stringResource(R.string.welcome_log_in).toUpperCase(Locale.getDefault())
+                )
             }
         }
     }

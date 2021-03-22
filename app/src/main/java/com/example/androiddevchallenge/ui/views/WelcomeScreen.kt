@@ -17,7 +17,11 @@
 package com.example.androiddevchallenge.ui.views
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -30,11 +34,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.navigate
-import com.example.androiddevchallenge.R.drawable.logo
-import com.example.androiddevchallenge.R.drawable.welcome_bg
-import com.example.androiddevchallenge.R.string.*
+import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.ui.components.WeTradeButton
-import java.util.*
+import java.util.Locale
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
@@ -45,13 +47,13 @@ fun WelcomeScreen(navController: NavController) {
         ) {
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(id = welcome_bg),
+                painter = painterResource(id = R.drawable.welcome_bg),
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds
             )
             Image(
-                painterResource(logo),
-                stringResource(app_name)
+                painter = painterResource(R.drawable.logo),
+                contentDescription = stringResource(R.string.app_name)
             )
             Row(
                 modifier = Modifier
@@ -65,7 +67,9 @@ fun WelcomeScreen(navController: NavController) {
                         .weight(1f)
                         .padding(end = 8.dp, start = 16.dp)
                 ) {
-                    Text(stringResource(welcome_started).toUpperCase(Locale.getDefault()))
+                    Text(
+                        text = stringResource(R.string.welcome_started).toUpperCase(Locale.getDefault())
+                    )
                 }
                 WeTradeButton(
                     onClick = { navController.navigate("login") },
@@ -74,7 +78,9 @@ fun WelcomeScreen(navController: NavController) {
                         .padding(end = 16.dp),
                     isSecondary = true
                 ) {
-                    Text(stringResource(welcome_log_in).toUpperCase(Locale.getDefault()))
+                    Text(
+                        text = stringResource(R.string.welcome_log_in).toUpperCase(Locale.getDefault())
+                    )
                 }
             }
         }

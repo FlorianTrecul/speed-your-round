@@ -18,9 +18,24 @@ package com.example.androiddevchallenge.ui.views
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Surface
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.TabRow
+import androidx.compose.material.Tab
+import androidx.compose.material.ContentAlpha
+import androidx.compose.material.Text
+import androidx.compose.material.rememberBottomSheetScaffoldState
+import androidx.compose.material.BottomSheetState
+import androidx.compose.material.BottomSheetValue
+import androidx.compose.material.BottomSheetScaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,7 +48,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
-import com.example.androiddevchallenge.R.string.*
 import com.example.androiddevchallenge.data.CategoryFactory.categoriesList
 import com.example.androiddevchallenge.data.PositionFactory.positionsList
 import com.example.androiddevchallenge.model.StockPosition
@@ -48,9 +62,9 @@ import java.util.*
 private enum class HomeTabs(
     @StringRes val titleRes: Int,
 ) {
-    Account(home_account_tab),
-    Watchlist(home_watchlist_tab),
-    Profile(home_profile_tab),
+    Account(R.string.home_account_tab),
+    Watchlist(R.string.home_watchlist_tab),
+    Profile(R.string.home_profile_tab),
 }
 
 @ExperimentalMaterialApi
@@ -135,7 +149,9 @@ fun HomeResume() {
             .padding(top = 32.dp)
             .fillMaxWidth(0.9f),
     ) {
-        Text(text = stringResource(home_transact).toUpperCase(Locale.getDefault()))
+        Text(
+            text = stringResource(R.string.home_transact).toUpperCase(Locale.getDefault())
+        )
     }
     CategoryChip(categories = categoriesList)
     Image(
@@ -167,7 +183,7 @@ fun PositionsBottomSheet(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(home_position_bottom_sheet),
+                    text = stringResource(R.string.home_position_bottom_sheet),
                     modifier = Modifier.paddingFromBaseline(top = 40.dp, bottom = 24.dp),
                     style = typography.subtitle1
                 )
