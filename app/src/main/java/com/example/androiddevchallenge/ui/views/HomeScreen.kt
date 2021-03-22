@@ -14,19 +14,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.R.string.*
-import com.example.androiddevchallenge.data.CategoryFactory
 import com.example.androiddevchallenge.data.CategoryFactory.categoriesList
-import com.example.androiddevchallenge.data.PositionFactory
 import com.example.androiddevchallenge.data.PositionFactory.positionsList
 import com.example.androiddevchallenge.model.StockPosition
 import com.example.androiddevchallenge.ui.components.CategoryChip
+import com.example.androiddevchallenge.ui.components.StockPositionsList
 import com.example.androiddevchallenge.ui.components.WeTradeButton
-import com.example.androiddevchallenge.ui.theme.gray900
 import com.example.androiddevchallenge.ui.theme.green
 import com.example.androiddevchallenge.ui.theme.typography
 import com.example.androiddevchallenge.ui.views.HomeTabs.Account
@@ -47,11 +44,11 @@ fun HomeScreen() {
     val tabs = HomeTabs.values()
 
     Surface(color = MaterialTheme.colors.background) {
-        PositionsBottomSheet() {
+        PositionsBottomSheet(positionsList) {
             Column {
                 TabRow(
                     selectedTabIndex = selectedTab.ordinal,
-                    Modifier.padding(horizontal = 16.dp),
+                    modifier = Modifier.padding(horizontal = 16.dp),
                     backgroundColor = Color.Transparent,
                     indicator = { },
                     divider = { }
@@ -122,13 +119,13 @@ fun HomeResume() {
             .padding(top = 32.dp)
             .fillMaxWidth(0.9f),
     ) {
-        Text(stringResource(home_transact).toUpperCase(Locale.getDefault()))
+        Text(text = stringResource(home_transact).toUpperCase(Locale.getDefault()))
     }
     CategoryChip(categories = categoriesList)
     Image(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, end = 16.dp),
+            .padding(start = 16.dp, end = 16.dp, bottom = 32.dp),
         painter = painterResource(id = R.drawable.home_illos),
         contentDescription = null,
         contentScale = ContentScale.FillWidth
@@ -138,6 +135,7 @@ fun HomeResume() {
 @ExperimentalMaterialApi
 @Composable
 fun PositionsBottomSheet(
+    positions: List<StockPosition>,
     content: @Composable (PaddingValues) -> Unit
 ) {
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
@@ -149,15 +147,15 @@ fun PositionsBottomSheet(
         scaffoldState = bottomSheetScaffoldState,
         sheetContent = {
             Column(
-                Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    stringResource(home_position_bottom_sheet),
-                    Modifier.paddingFromBaseline(top = 40.dp, bottom = 24.dp),
+                    text = stringResource(home_position_bottom_sheet),
+                    modifier = Modifier.paddingFromBaseline(top = 40.dp, bottom = 24.dp),
                     style = typography.subtitle1
                 )
-                //Positions(positions)
+                StockPositionsList(positions)
             }
         },
         sheetPeekHeight = 64.dp,
