@@ -29,7 +29,7 @@ import com.example.androiddevchallenge.ui.views.WelcomeScreen
 @Composable
 fun AppNavigator() {
     val navController = rememberNavController()
-    
+
     NavHost(navController = navController, startDestination = "weTradeHome") {
         composable("weTradeHome") {
             WelcomeScreen(navController)
