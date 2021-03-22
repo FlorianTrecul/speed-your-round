@@ -1,27 +1,25 @@
-# Template repository
+# Speed Your Round
 
-Template repository for the Jetpack Compose [#AndroidDevChallenge](https://developer.android.com/dev-challenge).
+<!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
+<!--- You can find both of these in the url bar when you open your repository in github. -->
+![Workflow result](https://github.com/FlorianTrecul/speed-your-round/workflows/Check/badge.svg)
 
-## Getting started
-Copy this repository by pressing the "Use this template" button in Github.
-Clone your repository and open it in the latest [Android Studio (Canary build)](https://developer.android.com/studio/preview).
 
-## Submission requirements
-- Follow the challenge description on the project website: [developer.android.com/dev-challenge](https://developer.android.com/dev-challenge)
-- All UI should be written using Jetpack Compose
-- The Github Actions workflow should complete successfully
-- Include two screenshots of your submission in the [results](results) folder. The names should be
-  screenshot_1.png and screenshot_2.png.
-- Include a screen record of your submission in the [results](results) folder. The name should be
-  video.mp4
-- Replace the contents of [README.md](README.md) with the contents of [README-template.md](README-template.md) and fill out the template.
+## :scroll: Description
+<!--- Describe your app in one or two sentences -->
+It is a trading management application, with a welcome screen, login and information about your trades and market prices.
 
-## Code formatting
-The CI uses [Spotless](https://github.com/diffplug/spotless) to check if your code is formatted correctly and contains the right licenses.
-Internally, Spotless uses [ktlint](https://github.com/pinterest/ktlint) to check the formatting of your code.
-To set up ktlint correctly with Android Studio, follow one of the [listed setup options](https://github.com/pinterest/ktlint#-with-intellij-idea).
+## :bulb: Motivation and Context
+<!--- Optionally point readers to interesting parts of your submission. -->
+<!--- What are you especially proud of? -->
+To let me discover the new user interface built with Jetpack Compose step by step on a multi-screen application sketch.<br/>
+I chose among the topics the one that interests me the most to be able to learn at my own pace and thus discover how to make several screens connected between them.<br/>
+It was quite simple thanks to the documentation https://developer.android.com/jetpack/compose but also https://foso.github.io/Jetpack-Compose-Playground/.<br/>
+With this application, I see a great future for Jetpack Compose which is very fun!
 
-Before committing your code, run `./gradlew app:spotlessApply` to automatically format your code.
+## :camera_flash: Screenshots
+<!-- You can add more screenshots here if you like -->
+<img src="/results/screenshot_1.png" width="260">&emsp;<img src="/results/screenshot_2.png" width="260">&emsp;<img src="/results/screenshot_2_dark.png" width="260">&emsp;<img src="/results/screenshot_3.png" width="260">&emsp;<img src="/results/screenshot_3_dark.png" width="260">&emsp;<img src="/results/screenshot_4.png" width="260">&emsp;<img src="/results/screenshot_4_dark.png" width="260">
 
 ## License
 ```
